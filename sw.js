@@ -1,0 +1,4 @@
+const CACHE_NAME='senat-narod-piter-v5';
+const FILES=["./", "./index.html", "./manifest.webmanifest", "./icon.svg", "./assets/sapsan.jpg", "./assets/moika.jpg", "./assets/at810.jpg", "./assets/architect.jpg", "./assets/oktav.jpg", "./assets/rene.jpg", "./assets/newholland.jpg", "./assets/zielinski.jpg", "./assets/peremena.jpg", "./assets/poltory.jpg", "./assets/orthodox.jpg", "./assets/cinema_michele.jpg", "./assets/vitya.jpg", "./assets/piano_michele.jpg", "./assets/water_walk.jpg", "./assets/bat.jpg", "./assets/michele.jpg", "./assets/boat.jpg", "./assets/ritm.jpg", "./assets/saviv.jpg", "./assets/frantsuza.jpg", "./assets/predubezhdai.jpg", "./assets/casper.jpg", "./assets/hermitage.jpg", "./assets/moskovsky.jpg", "./assets/fon.jpg"];
+self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(FILES))));
+self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request))));
